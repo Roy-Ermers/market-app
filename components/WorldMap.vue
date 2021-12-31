@@ -58,7 +58,7 @@ export default {
       watchId: undefined,
       zoom: 8,
       mapUrl:
-          'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=R8rAisQ0L6EL1wW8JVYQ'
+          'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Gu993tZWKnTLsaZdMKg7'
     };
   },
 
@@ -75,10 +75,10 @@ export default {
     updateColorScheme (dark) {
       if (dark) {
         this.mapUrl =
-            'https://api.maptiler.com/maps/b992018d-d296-4562-9e33-2f86e28d0e2c/{z}/{x}/{y}.png?key=R8rAisQ0L6EL1wW8JVYQ';
+            'https://api.maptiler.com/maps/b992018d-d296-4562-9e33-2f86e28d0e2c/{z}/{x}/{y}.png?key=Gu993tZWKnTLsaZdMKg7';
       } else {
         this.mapUrl =
-            'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=R8rAisQ0L6EL1wW8JVYQ';
+            'https://api.maptiler.com/maps/streets/{z}/{x}/{y}.png?key=Gu993tZWKnTLsaZdMKg7';
       }
     },
 
