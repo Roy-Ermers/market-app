@@ -22,6 +22,7 @@
         <li
           v-for="result in results"
           :key="result.osm_id"
+          tabindex="0"
           @click="selectCity(result)"
         >
           {{ result.namedetails.name }}
@@ -98,18 +99,43 @@ export default {
     right: 1rem;
     z-index: 99;
 
+    @include mobile {
+      left: 0;
+      right: 0;
+
+      .textbox {
+        margin: 0 0.5rem;
+      }
+    }
+
     header {
       max-width: 100vw;
       display: flex;
       align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
 
       .textbox {
         width: 350px;
+
+        @include mobile {
+          width: 100vw;
+        }
+      }
+
+      .filters {
+        white-space: nowrap;
+        max-width: 100vw;
+        overflow: auto;
+        padding-bottom: 1rem;
+        scrollbar-gutter: stable;
+        scrollbar-color: transparent transparent;
+        padding-left: 0.5rem;
       }
 
       .filter {
         padding: 0.25rem 1rem;
-        margin: 0 0.5rem;
+        margin: 0 0.25rem;
         border-radius: 1rem;
         background: $surface-2;
         color: inherit;
@@ -130,15 +156,27 @@ export default {
     background-color: $surface-1;
     border-radius: 0.5rem;
     padding: 0.25rem;
-    width: 100%;
     transition: opacity 100ms ease;
+    box-sizing: border-box;
+
+    @include mobile {
+      position: fixed;
+      top: 2.75rem;
+      left: 0.5rem;
+      right: 0.5rem;
+    }
 
     &:empty {
       opacity: 0;
     }
 
     li {
-      padding: 0.5rem 1rem;
+      padding: 1rem;
+      cursor: pointer;
+
+      &:focus-visible {
+        outline: 2px solid $surface-2;
+      }
 
       + li {
         border-top: 1px solid $surface-2;

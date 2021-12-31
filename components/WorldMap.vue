@@ -22,7 +22,7 @@
         :options="{ color: 'var(--brand)', opacity: 0.025, fill: 'none' }"
       />
 
-      <l-control-zoom position="topright" />
+      <l-control-zoom v-if="$device.isDesktopOrTablet" position="topright" />
       <l-control position="bottomright">
         <button @click="locate">
           <crosshair v-if="!watchId" />

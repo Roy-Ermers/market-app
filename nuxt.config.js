@@ -38,7 +38,9 @@ export default {
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
     '@nuxtjs/svg',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/device'
+
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
