@@ -36,7 +36,7 @@
 <script>
 import crosshair from '~/assets/icons/crosshair.svg?inline';
 import stopCircle from '~/assets/icons/stop-circle.svg?inline';
-
+const MAPTILER_KEY = 'ZGTM77FZt4A7JuscDmNg';
 export default {
   components: { crosshair, stopCircle },
   props: {
@@ -58,7 +58,7 @@ export default {
       watchId: undefined,
       zoom: 8,
       mapUrl:
-          'https://api.maptiler.com/maps/1ddaf5d5-3c82-4839-bd37-b0df2b7b2217/{z}/{x}/{y}.png?key=ZGTM77FZt4A7JuscDmNg'
+          `https://api.maptiler.com/maps/nl-cartiqo-light/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`
     };
   },
 
@@ -75,10 +75,10 @@ export default {
     updateColorScheme (dark) {
       if (dark) {
         this.mapUrl =
-            'https://api.maptiler.com/maps/c3e6a2ae-c25b-4abb-8065-37aafad653cd/{z}/{x}/{y}.png?key=ZGTM77FZt4A7JuscDmNg';
+            `https://api.maptiler.com/maps/nl-cartiqo-dark/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`;
       } else {
         this.mapUrl =
-            'https://api.maptiler.com/maps/1ddaf5d5-3c82-4839-bd37-b0df2b7b2217/{z}/{x}/{y}.png?key=ZGTM77FZt4A7JuscDmNg';
+            `https://api.maptiler.com/maps/nl-cartiqo-light/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`;
       }
     },
 
