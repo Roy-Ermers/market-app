@@ -4,7 +4,7 @@
       :type="type"
       :value="value"
       v-bind="$attrs"
-      @input="$emit('input', $event)"
+      @input="$emit('input', $event.target.value)"
     >
   </div>
 </template>
@@ -27,8 +27,8 @@ export default {
 
 <style lang="scss" scoped>
   .textbox {
-    background: #fff;
-    border: 2px solid $surface-3;
+    background: $surface-4;
+    border: 2px solid $surface-2;
     border-radius: 0.5rem;
     height: 2.5rem;
     width: max(350px, 100%);
@@ -47,6 +47,8 @@ export default {
       border: none;
       outline: none;
       height: inherit;
+      color: inherit;
+      width: 100%;
     }
   }
 </style>
