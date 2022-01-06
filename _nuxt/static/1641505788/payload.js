@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/", (function(a,b,c){return {data:[{}],fetch:{"data-v-5c586015:0":{search:"",outline:a,results:[],companies:[{name:b,lat:51.72892721056396,lon:c,category:["oliebollen"]},{name:b,lat:50.72892721056396,lon:c,category:["viskraam"]}]}},mutations:a}}(void 0,"Heikestraat 14",5.469130184425892)));
