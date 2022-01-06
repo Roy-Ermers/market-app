@@ -1,44 +1,24 @@
 <template>
-  <div class="map">
-    <l-map
-      ref="map"
-      class="leaflet-map"
-      :center.sync="center"
-      :zoom.sync="zoom"
-      :options="{ zoomControl: false, attributionControl: false }"
-    >
-      <l-tile-layer :url="mapUrl" />
-      <l-marker v-if="location" :lat-lng="location" @click="flyTo(location)">
-        <l-icon icon-url="/user.svg" icon-size="32" />
-      </l-marker>
-
-      <l-marker v-for="pin in pins" :key="pin.name" :lat-lng="[pin.lat, pin.lon]" @click="flyTo([pin.lat, pin.lon])">
-        <l-icon icon-url="/user.svg" icon-size="32" />
-      </l-marker>
-
-      <l-geo-json
-        v-if="outline"
-        :geojson="outline"
-        :options="{ color: 'var(--brand)', opacity: 0.025, fill: 'none' }"
-      />
-
-      <l-control-zoom v-if="$device.isDesktopOrTablet" position="topright" />
-      <l-control position="bottomright">
-        <button @click="locate">
-          <crosshair v-if="!watchId" />
-          <stop-circle v-else />
-        </button>
-      </l-control>
-    </l-map>
+  <div id="map">
+    <user ref="user" class="user-marker" @click="flyTo(location, 15)" />
+    <button class="fab" @click="locate">
+      <crosshair v-if="!watchId" />
+      <stop-circle v-else />
+    </button>
   </div>
 </template>
 
 <script>
+import { Map, NavigationControl, Marker } from 'maplibre-gl';
+import 'maplibre-gl/dist/maplibre-gl.css';
+
 import crosshair from '~/assets/icons/crosshair.svg?inline';
 import stopCircle from '~/assets/icons/stop-circle.svg?inline';
+import user from '~/assets/icons/user.svg?inline';
 const MAPTILER_KEY = 'ZGTM77FZt4A7JuscDmNg';
+
 export default {
-  components: { crosshair, stopCircle },
+  components: { crosshair, stopCircle, user },
   props: {
     pins: {
       type: Array,
@@ -53,12 +33,20 @@ export default {
 
   data () {
     return {
-      center: [52.36344182907241, 5.383195586844065],
+      center: [5.383195586844065, 52.36344182907241],
       location: undefined,
       watchId: undefined,
       zoom: 8,
+      /**
+       * @type {Map}
+       */
+      map: undefined,
+      /**
+       * @type {Marker}
+       */
+      userMarker: undefined,
       mapUrl:
-          `https://api.maptiler.com/maps/nl-cartiqo-light/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`
+          `https://api.maptiler.com/maps/1ddaf5d5-3c82-4839-bd37-b0df2b7b2217/style.json?key=${MAPTILER_KEY}`
     };
   },
 
@@ -69,29 +57,55 @@ export default {
     });
 
     this.updateColorScheme(media.matches);
+
+    this.createMap();
   },
 
   methods: {
     updateColorScheme (dark) {
       if (dark) {
         this.mapUrl =
-            `https://api.maptiler.com/maps/nl-cartiqo-dark/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`;
+            `https://api.maptiler.com/maps/faf6f9b5-d95b-41f4-a196-c3089724dd3f/style.json?key=${MAPTILER_KEY}`;
       } else {
         this.mapUrl =
-            `https://api.maptiler.com/maps/nl-cartiqo-light/{z}/{x}/{y}.png?key=${MAPTILER_KEY}`;
+            `https://api.maptiler.com/maps/1ddaf5d5-3c82-4839-bd37-b0df2b7b2217/style.json?key=${MAPTILER_KEY}`;
       }
-    },
 
+      this.map?.setStyle(this.mapUrl, { diff: true });
+    },
+    /**
+     * @param pos {GeolocationPosition}
+     */
     updatePosition (pos) {
       if (this.location === undefined) {
-        this.flyTo([pos.coords.latitude, pos.coords.longitude], 15);
+        this.flyTo([pos.coords.longitude, pos.coords.latitude], 15);
+        this.map.setBearing(pos.coords.heading);
       }
 
-      this.location = [pos.coords.latitude, pos.coords.longitude];
+      if (!this.userMarker) {
+        this.userMarker = new Marker({ element: this.$refs.user })
+          .setLngLat([0, 0])
+          .addTo(this.map)
+          .on('click', () => this.flyTo(this.location, 6));
+      };
+      this.location = [pos.coords.longitude, pos.coords.latitude];
+      this.userMarker.setLngLat([...this.location]);
     },
 
-    flyTo (coords, zoom = 15) {
-      this.$refs.map.mapObject.flyTo(coords, zoom);
+    flyTo (center, zoom = 15) {
+      this.map?.flyTo({ center, zoom });
+    },
+
+    createMap () {
+      this.map = new Map({
+        center: this.center,
+        style: this.mapUrl,
+        zoom: 8,
+        container: 'map',
+        attributionControl: false
+      });
+
+      this.map.addControl(new NavigationControl({ showCompass: true, visualizePitch: true, showZoom: true }));
     },
 
     locate () {
@@ -103,7 +117,7 @@ export default {
       }
 
       this.watchId = navigator.geolocation.watchPosition(
-        this.updatePosition,
+        position => this.updatePosition(position),
         () => {
           this.location = undefined;
         },
@@ -113,27 +127,24 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
-  .map {
+<style lang="scss">
+  #map {
     width: 100vw;
     height: 100vh;
+    box-sizing: border-box;
     position: relative;
 
-    .leaflet-map {
-      height: 100%;
-      width: 100%;
-      z-index: 1;
-      background: inherit;
+    @media (prefers-color-scheme: dark) {
+      .maplibregl-ctrl-group {
+        background: var(--surface1);
+      }
 
-      &::v-deep {
-        .leaflet-bar a {
-          color: $text-color;
-          background-color: $surface-2;
-        }
+      .maplibregl-ctrl-group button + button {
+        border-top: none;
       }
     }
 
-    button {
+    button.fab {
       font-size: 4rem;
       width: 1em;
       height: 1em;
@@ -145,6 +156,10 @@ export default {
       justify-content: center;
       border-radius: 1em;
       cursor: pointer;
+      padding: 0;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
 
       @include shadow;
 

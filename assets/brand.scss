@@ -8,12 +8,10 @@ $surface-4: var(--surface4);
 
 @mixin shadow {
   box-shadow:
-    hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.01)) 2.8px 2.2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
-    0 6.7px 5.3px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.01)),
-    0 12.5px 10px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
-    0 22.3px 17.9px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.02)),
-    0 41.8px 33.4px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + 0.03)),
-    0 100px 80px hsl(var(--surface-shadow) / var(--shadow-strength));
+    0.3px 0.5px 0.7px hsl(var(--surface-shadow) / 0.3),
+    0.8px 1.5px 1.9px -0.8px hsl(var(--surface-shadow) / 0.3),
+    1.9px 3.8px 4.8px -1.7px hsl(var(--surface-shadow) / 0.3),
+    4.6px 9.2px 11.6px -2.5px hsl(var(--surface-shadow) / 0.3);
 }
 
 @mixin mobile {

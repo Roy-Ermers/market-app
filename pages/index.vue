@@ -48,7 +48,7 @@ export default {
   },
 
   async fetch () {
-    this.companies = await this.$content('/')
+    this.companies = await this.$content('/market-stands')
       .only(['name', 'lat', 'lon', 'category'])
       .fetch();
   },
@@ -69,7 +69,7 @@ export default {
     selectCity (city) {
       this.search = '';
       this.outline = city.geojson;
-      this.$refs.map.flyTo([Number(city.lat), Number(city.lon)], 15);
+      this.$refs.map.flyTo([Number(city.lon), Number(city.lat)], 15);
     },
 
     async searchCity () {
@@ -97,7 +97,7 @@ export default {
     top: 1rem;
     left: 1rem;
     right: 1rem;
-    z-index: 99;
+    z-index: 1;
 
     @include mobile {
       left: 0;

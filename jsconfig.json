@@ -10,8 +10,8 @@
       ]
     },
     "types": [
-      "@nuxtjs/types",
-      "@nuxtjs/content"
+      "@nuxt/types",
+      "@nuxt/content"
     ]
   },
   "exclude": [
