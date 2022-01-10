@@ -7,7 +7,9 @@
           type="search"
           placeholder="Zoek naar een plaats"
           @keydown.enter="searchCity"
-        />
+        >
+          <icon-button icon="menu" @click="open = !open" />
+        </textbox>
 
         <div class="filters">
           <button class="filter active">
@@ -30,7 +32,27 @@
       </ul>
     </div>
 
-    <world-map ref="map" :outline="outline" :pins="companies" />
+    <panel-layout :open="open">
+      <template #default>
+        <map-view ref="map">
+          <map-marker
+            v-for="company in companies"
+            :key="company.name"
+            :location="[company.lon, company.lat]"
+            alignment="map"
+            :color="company.color"
+          />
+        </map-view>
+      </template>
+      <template #panel>
+        <h1>Bedrijven in de buurt</h1>
+        <ul>
+          <li v-for="company in companies" :key="company.name" @click="gotoCompany(company)">
+            {{ company.name }}
+          </li>
+        </ul>
+      </template>
+    </panel-layout>
   </main>
 </template>
 
@@ -43,13 +65,15 @@ export default {
       search: '',
       outline: undefined,
       results: [],
-      companies: []
+      companies: [],
+      open: false,
+      selectedCompany: undefined
     };
   },
 
   async fetch () {
     this.companies = await this.$content('/market-stands')
-      .only(['name', 'lat', 'lon', 'category'])
+      .only(['name', 'lat', 'lon', 'category', 'color'])
       .fetch();
   },
 
@@ -66,10 +90,9 @@ export default {
   },
 
   methods: {
-    selectCity (city) {
-      this.search = '';
-      this.outline = city.geojson;
-      this.$refs.map.flyTo([Number(city.lon), Number(city.lat)], 15);
+    gotoCompany (company) {
+      this.$refs.map.flyTo([company.lon, company.lat], 20);
+      this.open = false;
     },
 
     async searchCity () {

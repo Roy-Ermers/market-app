@@ -1,0 +1,215 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <style>
+    @keyframes appear {
+      0% {
+        opacity: 0;
+      }
+
+      0.01% {
+        opacity: 1;
+      }
+
+      2.63% {
+        opacity: 1;
+      }
+
+      2.64% {
+        opacity: 0;
+      }
+    }
+
+  text:nth-child(1) {
+    animation: appear 76s step-start 0s both infinite;
+  }
+
+  text:nth-child(2) {
+    animation: appear 76s step-start 2s both infinite;
+  }
+
+  text:nth-child(3) {
+    animation: appear 76s step-start 4s both infinite;
+  }
+
+  text:nth-child(4) {
+    animation: appear 76s step-start 6s both infinite;
+  }
+
+  text:nth-child(5) {
+    animation: appear 76s step-start 8s both infinite;
+  }
+
+  text:nth-child(6) {
+    animation: appear 76s step-start 10s both infinite;
+  }
+
+  text:nth-child(7) {
+    animation: appear 76s step-start 176s both infinite;
+  }
+
+  text:nth-child(8) {
+    animation: appear 76s step-start 14s both infinite;
+  }
+
+  text:nth-child(9) {
+    animation: appear 76s step-start 16s both infinite;
+  }
+
+  text:nth-child(10) {
+    animation: appear 76s step-start 18s both infinite;
+  }
+
+  text:nth-child(11) {
+    animation: appear 76s step-start 20s both infinite;
+  }
+
+  text:nth-child(12) {
+    animation: appear 76s step-start 276s both infinite;
+  }
+
+  text:nth-child(13) {
+    animation: appear 76s step-start 24s both infinite;
+  }
+
+  text:nth-child(14) {
+    animation: appear 76s step-start 26s both infinite;
+  }
+
+  text:nth-child(15) {
+    animation: appear 76s step-start 28s both infinite;
+  }
+
+  text:nth-child(16) {
+    animation: appear 76s step-start 30s both infinite;
+  }
+
+  text:nth-child(17) {
+    animation: appear 76s step-start 376s both infinite;
+  }
+
+  text:nth-child(18) {
+    animation: appear 76s step-start 34s both infinite;
+  }
+
+  text:nth-child(19) {
+    animation: appear 76s step-start 36s both infinite;
+  }
+
+  text:nth-child(20) {
+    animation: appear 76s step-start 38s both infinite;
+  }
+
+  text:nth-child(21) {
+    animation: appear 76s step-start 40s both infinite;
+  }
+
+  text:nth-child(22) {
+    animation: appear 76s step-start 476s both infinite;
+  }
+
+  text:nth-child(23) {
+    animation: appear 76s step-start 44s both infinite;
+  }
+
+  text:nth-child(24) {
+    animation: appear 76s step-start 46s both infinite;
+  }
+
+  text:nth-child(25) {
+    animation: appear 76s step-start 48s both infinite;
+  }
+
+  text:nth-child(26) {
+    animation: appear 76s step-start 50s both infinite;
+  }
+
+  text:nth-child(27) {
+    animation: appear 76s step-start 576s both infinite;
+  }
+
+  text:nth-child(28) {
+    animation: appear 76s step-start 54s both infinite;
+  }
+
+  text:nth-child(29) {
+    animation: appear 76s step-start 56s both infinite;
+  }
+
+  text:nth-child(30) {
+    animation: appear 76s step-start 58s both infinite;
+  }
+
+  text:nth-child(31) {
+    animation: appear 76s step-start 60s both infinite;
+  }
+
+  text:nth-child(32) {
+    animation: appear 76s step-start 676s both infinite;
+  }
+
+  text:nth-child(33) {
+    animation: appear 76s step-start 64s both infinite;
+  }
+
+  text:nth-child(34) {
+    animation: appear 76s step-start 66s both infinite;
+  }
+
+  text:nth-child(35) {
+    animation: appear 76s step-start 68s both infinite;
+  }
+
+  text:nth-child(36) {
+    animation: appear 76s step-start 70s both infinite;
+  }
+
+  text:nth-child(37) {
+    animation: appear 76s step-start 776s both infinite;
+  }
+
+  text:nth-child(38) {
+    animation: appear 76s step-start 74s both infinite;
+  }
+
+  text:nth-child(39) {
+    animation: appear 76s step-start 76s both infinite;
+  }
+  </style>
+  <text x="2" y="24" font-size="24">🍉</text>
+  <text x="2" y="24" font-size="24">🍎</text>
+  <text x="2" y="24" font-size="24">🍞</text>
+  <text x="2" y="24" font-size="24">🥜</text>
+  <text x="2" y="24" font-size="24">🥐</text>
+  <text x="2" y="24" font-size="24">🥖</text>
+  <text x="2" y="24" font-size="24">🥨</text>
+  <text x="2" y="24" font-size="24">🥞</text>
+  <text x="2" y="24" font-size="24">🧇</text>
+  <text x="2" y="24" font-size="24">🧀</text>
+  <text x="2" y="24" font-size="24">🍖</text>
+  <text x="2" y="24" font-size="24">🥓</text>
+  <text x="2" y="24" font-size="24">🍔</text>
+  <text x="2" y="24" font-size="24">🍕</text>
+  <text x="2" y="24" font-size="24">🌭</text>
+  <text x="2" y="24" font-size="24">🥪</text>
+  <text x="2" y="24" font-size="24">🌮</text>
+  <text x="2" y="24" font-size="24">🌯</text>
+  <text x="2" y="24" font-size="24">🫔</text>
+  <text x="2" y="24" font-size="24">🧆</text>
+  <text x="2" y="24" font-size="24">🥣</text>
+  <text x="2" y="24" font-size="24">🍿</text>
+  <text x="2" y="24" font-size="24">🍱</text>
+  <text x="2" y="24" font-size="24">🍙</text>
+  <text x="2" y="24" font-size="24">🍚</text>
+  <text x="2" y="24" font-size="24">🍣</text>
+  <text x="2" y="24" font-size="24">🍦</text>
+  <text x="2" y="24" font-size="24">🍧</text>
+  <text x="2" y="24" font-size="24">🍩</text>
+  <text x="2" y="24" font-size="24">🍪</text>
+  <text x="2" y="24" font-size="24">🍰</text>
+  <text x="2" y="24" font-size="24">🧁</text>
+  <text x="2" y="24" font-size="24">🍭</text>
+  <text x="2" y="24" font-size="24">🍬</text>
+  <text x="2" y="24" font-size="24">🍫</text>
+  <text x="2" y="24" font-size="24">🍯</text>
+  <text x="2" y="24" font-size="24">🍺</text>
+  <text x="2" y="24" font-size="24">🐟</text>
+</svg>

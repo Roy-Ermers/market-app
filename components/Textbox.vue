@@ -6,6 +6,9 @@
       v-bind="$attrs"
       @input="$emit('input', $event.target.value)"
     >
+    <div v-if="!!$slots.default" class="addon">
+      <slot />
+    </div>
   </div>
 </template>
 
@@ -34,6 +37,7 @@ export default {
     width: max(350px, 100%);
     padding: 0 1rem;
     transition: border-color 200ms ease;
+    display: flex;
 
     &:focus-within {
       border-color: $color;
@@ -47,6 +51,12 @@ export default {
       height: inherit;
       color: inherit;
       width: 100%;
+    }
+
+    .addon {
+      margin-right: -1rem;
+      margin-left: 1rem;
+      max-height: 100%;
     }
   }
 </style>
