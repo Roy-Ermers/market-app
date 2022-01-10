@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/", (function(a,b){return {data:[{}],fetch:{"data-v-e096ddfc:0":{search:"",outline:a,results:[],companies:[{name:"Heikestraat 14",lat:51.72892721056396,lon:b,category:["oliebollen"],color:"yellow"},{name:"van Nistelrooij",lat:50.72892721056396,lon:b,category:["viskraam"],color:"red"}],open:false,selectedCompany:a}},mutations:a}}(void 0,5.469130184425892)));
