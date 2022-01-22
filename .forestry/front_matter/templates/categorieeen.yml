@@ -2,7 +2,7 @@
 label: Categorieeen
 hide_body: true
 fields:
-- name: category
+- name: categories
   type: field_group_list
   fields:
   - name: name
@@ -18,7 +18,7 @@ fields:
   config:
     min: 1
     max: 
-    labelField: 
-  label: Categorie
+    labelField: name
+  label: categorieën
 pages:
 - content/categories.json
