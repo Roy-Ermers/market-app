@@ -1,12 +1,4 @@
 {
-  "fried_fish": {
-    "name": "Kibbeling",
-    "icon": "fish.svg"
-  },
-  "donut_holes": {
-    "name": "Oliebollen",
-    "icon": "unknown.svg"
-  },
   "category": [
     {
       "name": "oliebollen",
