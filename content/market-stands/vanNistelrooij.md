@@ -8,7 +8,17 @@ color: red
 timerule: DTSTART:20150214T230000ZRRULE:FREQ=WEEKLY;INTERVAL=1
 categories:
 - Vis
+- oliebollen
 locations:
+- city: geffen
+  coordinates:
+    longitude: 0
+    latitude: 0
+  'on': Zaterdag
+  inTimeRange: true
+  timeRange:
+    from: 2022-01-22T15:12:30Z
+    until: 2022-01-22
 - city: Geffen
   'on': Maandag
   inTimeRange: true
