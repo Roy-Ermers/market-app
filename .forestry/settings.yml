@@ -5,7 +5,7 @@ admin_path:
 webhook_url: 
 sections:
 - type: directory
-  path: content/market-stand
+  path: content/market-stands
   label: Marketstand
   create: all
   match: "**/*"
