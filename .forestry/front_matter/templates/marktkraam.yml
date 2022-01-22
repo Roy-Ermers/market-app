@@ -11,7 +11,7 @@ fields:
 - name: categories
   type: tag_list
   default: []
-  label: categorieën
+  label: Categorieën
 - name: locations
   type: field_group_list
   fields:
@@ -20,7 +20,7 @@ fields:
     config:
       required: true
       min: 2
-    label: plaatsnaam
+    label: Plaatsnaam
   - name: 'on'
     type: select
     default: Zaterdag
@@ -39,7 +39,7 @@ fields:
         section: 
         file: 
         path: 
-    label: op
+    label: Op
   - name: lon
     type: number
     label: Longitude
@@ -98,7 +98,7 @@ fields:
   config:
     min: 1
     max: 
-    labelField: 
-  label: locaties
+    labelField: city
+  label: Locaties
 pages:
 - content/market-stands/vanNistelrooij.md
