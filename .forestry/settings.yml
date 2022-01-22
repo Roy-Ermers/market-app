@@ -4,14 +4,16 @@ auto_deploy: false
 admin_path: ''
 webhook_url: 
 sections:
-- type: document
-  path: content/categories.json
-  label: Categorieen
 - type: directory
   path: content/market-stands
-  label: Marketstand
+  label: Marktkramen
   create: all
   match: "**/*.md"
+  templates:
+  - marktkraam
+- type: document
+  path: content/categories.json
+  label: categorieën
 upload_dir: static/images
 public_path: ''
 front_matter_path: ''
