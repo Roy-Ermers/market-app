@@ -6,5 +6,11 @@
   "donut_holes": {
     "name": "Oliebollen",
     "icon": "unknown.svg"
-  }
+  },
+  "category": [
+    {
+      "icon": "/uploads/abstract-list-is-empty.svg",
+      "name": "vis"
+    }
+  ]
 }

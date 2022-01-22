@@ -20,3 +20,5 @@ fields:
     max: 
     labelField: 
   label: Categorie
+pages:
+- content/categories.json
