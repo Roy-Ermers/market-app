@@ -21,6 +21,33 @@ fields:
       required: true
       min: 2
     label: Plaatsnaam
+  - name: coordinates
+    type: field_group
+    config: {}
+    fields:
+    - name: longitude
+      type: number
+      label: Longitude
+      description: ''
+      default: 0
+      required: true
+      config:
+        min: 
+        max: 
+        step: 
+        required: true
+    - name: latitude
+      type: number
+      label: Latitude
+      description: ''
+      default: 0
+      required: true
+      config:
+        min: 
+        max: 
+        step: 
+        required: true
+    label: coordinaten
   - name: 'on'
     type: select
     default: Zaterdag
@@ -40,28 +67,6 @@ fields:
         file: 
         path: 
     label: Op
-  - name: lon
-    type: number
-    label: Longitude
-    description: ''
-    default: 0
-    required: true
-    config:
-      min: 
-      max: 
-      step: 
-      required: true
-  - name: lat
-    type: number
-    label: Latitude
-    description: ''
-    default: 0
-    required: true
-    config:
-      min: 
-      max: 
-      step: 
-      required: true
   - name: inTimeRange
     type: boolean
     label: Tijdsperiode gebonden
