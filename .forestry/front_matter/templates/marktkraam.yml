@@ -8,15 +8,10 @@ fields:
   label: Marktkraam naam
   config:
     required: true
-- type: list
-  name: category
+- name: categories
+  type: tag_list
+  default: []
   label: categorieën
-  config:
-    use_select: true
-    source:
-      type: pages
-      section: categorieen
-      file: content/categories.json
 - name: locations
   type: field_group_list
   fields:
