@@ -1,22 +1,13 @@
 ---
 label: Marktkraam
 hide_body: false
+display_field: name
 fields:
 - type: text
   name: name
-  label: name
-- type: number
-  name: lat
-  label: lat
-- type: number
-  name: lon
-  label: lon
+  label: Marktkraam naam
+  config:
+    required: true
 - type: list
   name: category
   label: category
-- type: text
-  name: color
-  label: color
-- type: text
-  name: timerule
-  label: timerule
