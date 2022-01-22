@@ -11,3 +11,97 @@ fields:
 - type: list
   name: category
   label: category
+  config:
+    use_select: true
+    source:
+      type: documents
+      section: categorieen
+      file: content/categories.json
+- name: locations
+  type: field_group_list
+  fields:
+  - name: city
+    type: text
+    config:
+      required: true
+      min: 2
+    label: plaatsnaam
+  - name: 'on'
+    type: select
+    default: Zaterdag
+    config:
+      required: true
+      options:
+      - Maandag
+      - Dinsdag
+      - Woensdag
+      - Donderdag
+      - Vrijdag
+      - Zaterdag
+      - Zondag
+      source:
+        type: simple
+        section: 
+        file: 
+        path: 
+    label: op
+  - name: lon
+    type: number
+    label: Longitude
+    description: ''
+    default: 0
+    required: true
+    config:
+      min: 
+      max: 
+      step: 
+      required: true
+  - name: lat
+    type: number
+    label: Latitude
+    description: ''
+    default: 0
+    required: true
+    config:
+      min: 
+      max: 
+      step: 
+      required: true
+  - name: inTimeRange
+    type: boolean
+    label: Tijdsperiode gebonden
+  - name: timeRange
+    type: field_group
+    config: {}
+    fields:
+    - name: from
+      type: datetime
+      label: Van
+      description: ''
+      config:
+        required: false
+        date_format: DD-MMM-YYYY
+        time_format: " "
+        display_utc: false
+        export_format: YYYY-MM-DD
+      default: '2022-01-22T15:12:30Z'
+    - name: until
+      type: datetime
+      description: ''
+      config:
+        required: false
+        date_format: DD-MMM-YYYY
+        time_format: " "
+        display_utc: false
+        export_format: YYYY-MM-DD
+      label: Tot
+      default: now
+    label: Tijdsperiode
+    showOnly:
+      field: inTimeRange
+      value: true
+  config:
+    min: 1
+    max: 
+    labelField: 
+  label: locaties
