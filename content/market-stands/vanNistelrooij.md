@@ -17,6 +17,9 @@ locations:
     until: 2022-01-23
   lon: 51.74086612088183
   lat: 5.461437950228176
+  coordinates:
+    longitude: 51.740912259056145
+    latitude: 5.461374084106322
 
 ---
 # dit is de lekkerste viskraam
