@@ -1,0 +1,24 @@
+---
+label: Categorieeen
+hide_body: true
+fields:
+- type: field_group
+  name: fried_fish
+  label: fried_fish
+  fields:
+  - type: text
+    name: name
+    label: name
+  - type: file
+    name: icon
+    label: icon
+- type: field_group
+  name: donut_holes
+  label: donut_holes
+  fields:
+  - type: text
+    name: name
+    label: name
+  - type: file
+    name: icon
+    label: icon

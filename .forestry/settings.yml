@@ -7,7 +7,6 @@ sections:
 - type: document
   path: content/categories.json
   label: Categorieen
-  match: "**/*"
 - type: directory
   path: content/market-stands
   label: Marketstand
