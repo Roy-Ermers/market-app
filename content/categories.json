@@ -9,6 +9,10 @@
   },
   "category": [
     {
+      "name": "oliebollen",
+      "icon": "/220px-the_sounds_of_earth_-_gpn-2000-001976.jpg"
+    },
+    {
       "icon": "/uploads/abstract-list-is-empty.svg",
       "name": "vis"
     }
