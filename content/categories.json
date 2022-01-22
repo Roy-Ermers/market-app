@@ -11,6 +11,10 @@
   ],
   "categories": [
     {
+      "name": "Vis",
+      "icon": ""
+    },
+    {
       "name": "Oliebollen",
       "icon": "/220px-the_sounds_of_earth_-_gpn-2000-001976.jpg"
     }
