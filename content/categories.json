@@ -1,10 +1,10 @@
 {
   "fried_fish": {
     "name": "Kibbeling",
-    "icon": "fish.svg"
+    "icon": "fish"
   },
   "donut_holes": {
     "name": "Oliebollen",
-    "icon": "unknown.svg"
+    "icon": "user"
   }
 }

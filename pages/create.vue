@@ -32,7 +32,19 @@ export default {
       const params = new URLSearchParams({
         filename: this.name + '.md'
       });
-      return `https://github.com/Roy-Ermers/market-app/new/master/content?${params.toString()}`;
+      return `https://github.com/Roy-Ermers/market-app/new/master/content/market-stands?${params.toString()}`;
+    }
+  },
+  methods: {
+    async searchCity () {
+      if (this.search.length < 3) {
+        this.results = [];
+        return;
+      }
+
+      this.results = await this.$axios.$get(
+        `https://nominatim.openstreetmap.org/search/?q=${this.search}&format=json&countrycodes=nl&polygon_geojson=1&namedetails=1`
+      );
     }
   }
 };

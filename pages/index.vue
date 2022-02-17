@@ -12,12 +12,12 @@
         </textbox>
 
         <div class="filters">
-          <button class="filter active">
+          <!-- <button class="filter active">
             Kramen die nu open zijn
           </button>
           <button v-for="category in categories" :key="category" class="filter">
             {{ category }}
-          </button>
+          </button> -->
         </div>
       </header>
       <ul class="results">
@@ -41,6 +41,7 @@
             :location="[company.lon, company.lat]"
             alignment="map"
             :color="company.color"
+            :icon="categories[company.category[0]].icon"
           />
         </map-view>
       </template>
@@ -58,6 +59,7 @@
 
 <script>
 import debounce from '~/mixins/debounce';
+import categories from '@/content/categories.json';
 
 export default {
   data () {
@@ -67,7 +69,8 @@ export default {
       results: [],
       companies: [],
       open: false,
-      selectedCompany: undefined
+      selectedCompany: undefined,
+      categories
     };
   },
 
@@ -75,12 +78,6 @@ export default {
     this.companies = await this.$content('/market-stands')
       .only(['name', 'lat', 'lon', 'category', 'color'])
       .fetch();
-  },
-
-  computed: {
-    categories () {
-      return [...new Set(this.companies.flatMap(x => x.category))];
-    }
   },
 
   watch: {
@@ -93,17 +90,6 @@ export default {
     gotoCompany (company) {
       this.$refs.map.flyTo([company.lon, company.lat], 20);
       this.open = false;
-    },
-
-    async searchCity () {
-      if (this.search.length < 3) {
-        this.results = [];
-        return;
-      }
-
-      this.results = await this.$axios.$get(
-        `https://nominatim.openstreetmap.org/search/?q=${this.search}&format=json&countrycodes=nl&polygon_geojson=1&namedetails=1`
-      );
     }
   }
 };
