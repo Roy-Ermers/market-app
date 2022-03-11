@@ -1,0 +1,24 @@
+---
+label: Categorieeen
+hide_body: true
+fields:
+- name: categories
+  type: field_group_list
+  fields:
+  - name: name
+    type: text
+    config:
+      required: true
+    label: naam
+  - name: icon
+    type: file
+    config:
+      maxSize: 64
+    label: icoon
+  config:
+    min: 1
+    max: 
+    labelField: name
+  label: categorieën
+pages:
+- content/categories.json
