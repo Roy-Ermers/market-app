@@ -106,4 +106,5 @@ fields:
     labelField: city
   label: Locaties
 pages:
+- content/market-stands/Vissticksontour.md
 - content/market-stands/vanNistelrooij.md
