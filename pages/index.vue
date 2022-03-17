@@ -15,7 +15,8 @@
           <!-- <button class="filter active">
             Kramen die nu open zijn
           </button>
-          <button v-for="category in categories" :key="category" class="filter">
+          -->
+          <!-- <button v-for="category in categories" :key="category" class="filter">
             {{ category }}
           </button> -->
         </div>
@@ -36,12 +37,11 @@
       <template #default>
         <map-view ref="map">
           <map-marker
-            v-for="company in companies"
-            :key="company.name"
-            :location="[company.lon, company.lat]"
+            v-for="location in locations"
+            :key="location.company.name"
+            :location="[Number(location.coordinates.longitude), Number(location.coordinates.latitude)]"
             alignment="map"
-            :color="company.color"
-            :icon="categories[company.category[0]].icon"
+            :data="location.company"
           />
         </map-view>
       </template>
@@ -76,8 +76,14 @@ export default {
 
   async fetch () {
     this.companies = await this.$content('/market-stands')
-      .only(['name', 'lat', 'lon', 'category', 'color'])
+      .only(['name', 'locations', 'category'])
       .fetch();
+  },
+
+  computed: {
+    locations () {
+      return this.companies.flatMap(x => x.locations.map(y => ({ ...y, company: x }))).filter(x => x.coordinates);
+    }
   },
 
   watch: {
@@ -88,7 +94,7 @@ export default {
 
   methods: {
     gotoCompany (company) {
-      this.$refs.map.flyTo([company.lon, company.lat], 20);
+      this.$refs.map.flyTo(company.coordinates, 20);
       this.open = false;
     }
   }
